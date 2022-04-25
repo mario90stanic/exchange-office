@@ -1,0 +1,16 @@
+name: exchange-office
+recipe: laravel
+config:
+  webroot: public
+  xdebug: true
+  php: "8.0"
+services:
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
+    mailhog:
+      type: mailhog
+      portforward: false
+      hogfrom:
+        - appserver
