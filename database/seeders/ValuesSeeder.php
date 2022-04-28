@@ -21,16 +21,19 @@ class ValuesSeeder extends Seeder
                 'name' => 'JPY',
                 'rate' => 107.17,
                 'surcharge' => 7.5,
+                'discount' => 0,
             ],
             [
                 'name' => 'GBP',
                 'rate' => 0.711178,
                 'surcharge' => 5,
+                'discount' => 0,
             ],
             [
                 'name' => 'EUR',
                 'rate' => 0.884872,
                 'surcharge' => 5,
+                'discount' => 2,
             ],
         ];
 
@@ -39,6 +42,7 @@ class ValuesSeeder extends Seeder
                 'name' => $defaultValue['name'],
                 'rate' => $defaultValue['rate'],
                 'surcharge' => $defaultValue['surcharge'],
+                'discount' => $defaultValue['discount'],
                 'updated_at' => $timeDate,
                 'created_at' => $timeDate,
             ]);
