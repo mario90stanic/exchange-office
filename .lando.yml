@@ -9,8 +9,8 @@ services:
     type: phpmyadmin
     hosts:
       - database
-    mailhog:
-      type: mailhog
-      portforward: false
-      hogfrom:
-        - appserver
+  mailhog:
+    type: mailhog
+    portforward: false
+    hogfrom:
+      - appserver
