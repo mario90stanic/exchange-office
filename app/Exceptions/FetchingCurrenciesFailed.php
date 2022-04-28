@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Exceptions;
+
+use Exception;
+
+class FetchingCurrenciesFailed extends Exception
+{
+    /**
+     * Render the exception into an HTTP response.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function render($request)
+    {
+        return response([
+            'status' => 'creating_order_failed.',
+            'message' => 'Creating order failed, please trt latter.'
+        ], 500);
+    }
+}
