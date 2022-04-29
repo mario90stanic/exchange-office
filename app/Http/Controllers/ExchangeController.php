@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Exceptions\FetchingCurrenciesFailed;
 use App\Factories\CurrencyFactory;
 use App\Http\Requests\OrderRequest;
-use App\Models\Value;
+use App\Models\Currency;
 use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Routing\ResponseFactory;
@@ -20,7 +20,7 @@ class ExchangeController extends Controller
     public function getValues(): Response|Application|ResponseFactory
     {
         try {
-            $currency = Value::getValueNames();
+            $currency = Currency::getValueNames();
         } catch (FetchingCurrenciesFailed $e) {
             return response([
                 'status' => 'no_currencies_in_database',

@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ValuesSeeder extends Seeder
+class CurrenciesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -38,7 +38,7 @@ class ValuesSeeder extends Seeder
         ];
 
         foreach ($defaultValues as $defaultValue) {
-            DB::table('values')->insert([
+            DB::table('currencies')->insert([
                 'name' => $defaultValue['name'],
                 'rate' => $defaultValue['rate'],
                 'surcharge' => $defaultValue['surcharge'],

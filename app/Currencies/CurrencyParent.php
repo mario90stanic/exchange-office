@@ -3,10 +3,10 @@
 namespace App\Currencies;
 
 use App\Models\Order;
-use App\Models\Value;
+use App\Models\Currency;
 use Exception;
 
-abstract class Currency
+abstract class CurrencyParent
 {
     protected object $currency;
     protected float $amount;
@@ -35,7 +35,7 @@ abstract class Currency
      */
     public function calculate(): static
     {
-        $this->calculatedAmount = $this->amount * $this->currency->rate;
+        $this->calculatedAmount = $this->amount / $this->currency->rate;
 
         return $this;
     }
@@ -46,7 +46,7 @@ abstract class Currency
     public function setCurrency(): static
     {
         $className = (new \ReflectionClass($this))->getShortName();
-        $this->currency = Value::where('name', $className)->firstOrFail();
+        $this->currency = Currency::where('name', $className)->firstOrFail();
 
         return $this;
     }
@@ -84,5 +84,15 @@ abstract class Currency
     public function getCalculatedWithSurcharge(): float
     {
         return $this->calculateWithSurcharge;
+    }
+
+    public function getDiscountAmount(): float
+    {
+        return $this->getCalculatedAmount() * $this->getCurrency()->discount / 100;
+    }
+
+    public function getSurchargeAmount(): float
+    {
+        return $this->getAmount() * $this->getCurrency()->surcharge / 100;
     }
 }

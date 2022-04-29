@@ -5,7 +5,7 @@ namespace App\Currencies;
 use App\Interfaces\CurrencyInterface;
 use Exception;
 
-class EUR extends Currency implements CurrencyInterface
+class EUR extends CurrencyParent implements CurrencyInterface
 {
     /**
      * @throws Exception

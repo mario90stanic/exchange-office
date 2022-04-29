@@ -14,14 +14,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('values', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->float('rate');
-            $table->float('surcharge')->default(0);
-            $table->float('discount')->default(0);
-            $table->timestamps();
-        });
+        DB::statement('ALTER TABLE currencies ADD rate FLOAT');
+        DB::statement('ALTER TABLE currencies ADD surcharge FLOAT');
+        DB::statement('ALTER TABLE currencies ADD discount FLOAT');
     }
 
     /**
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('values');
+        //
     }
 };

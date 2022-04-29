@@ -4,7 +4,7 @@ namespace App\Currencies;
 
 use App\Interfaces\CurrencyInterface;
 
-class JPY extends Currency implements CurrencyInterface
+class JPY extends CurrencyParent implements CurrencyInterface
 {
     protected float $surcharge = 0.075;
 

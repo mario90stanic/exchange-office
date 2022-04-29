@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use Throwable;
 
@@ -60,7 +59,7 @@ class CurrencyTest extends TestCase
 
         $amountInUSD = $response->decodeResponseJson()['order']['amount_in_usd'];
         $response->assertStatus(200);
-        $this->assertEquals(91.0533288, $amountInUSD);
+        $this->assertEquals(116.28800549684021, $amountInUSD);
     }
 
     /**
@@ -96,6 +95,7 @@ class CurrencyTest extends TestCase
      */
     public function getCalculate($currency, $amount, $result): void
     {
+        $this->withoutExceptionHandling();
         $response = $this->post(
             '/api/calculate',
             [
@@ -112,17 +112,17 @@ class CurrencyTest extends TestCase
     public function withSurchargeData(): array
     {
         return [
-            ['EUR', 100, 91.0533288],
-            ['GBP', 100, 74.67369],
-            ['JPY', 100, 11520.8944325],
+            ['EUR', 100, 116.28800549684021],
+            ['GBP', 100, 147.64236239028767],
+            ['JPY', 100, 1.0030792199309508],
         ];
     }
     public function withoutSurchargeData(): array
     {
         return [
-            ['EUR', 100, 88.4872],
-            ['GBP', 100, 71.1178],
-            ['JPY', 100, 10717.1111],
+            ['EUR', 100, 113.01069533220624],
+            ['GBP', 100, 140.6117737050359],
+            ['JPY', 100, 0.9330969487729776],
         ];
     }
 

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Exceptions\FetchingCurrenciesFailed;
-class Value extends Model
+class Currency extends Model
 {
     use HasFactory;
 
@@ -24,7 +24,7 @@ class Value extends Model
      */
     public static function getValueNames()
     {
-        $values = Value::select('name')
+        $values = Currency::select('name')
             ->pluck('name');
 
         if ($values->isEmpty()) return throw new FetchingCurrenciesFailed();

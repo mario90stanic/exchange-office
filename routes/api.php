@@ -18,4 +18,3 @@ Route::post('get-values', [ExchangeController::class, 'getValues']);
 Route::post('make-exchange-order', [ExchangeController::class, 'makeExchangeOrder']);
 Route::post('calculate', [ExchangeController::class, 'getCalculate']);
 Route::post('calculate-with-surcharge', [ExchangeController::class, 'getCalculateWithSurcharge']);
-//Route::post('action', [ExchangeController::class, 'action']);

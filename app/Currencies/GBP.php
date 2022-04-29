@@ -7,13 +7,13 @@ use App\Mail\OrderMail;
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 
-class GBP extends Currency implements CurrencyInterface
+class GBP extends CurrencyParent implements CurrencyInterface
 {
     private object $order;
 
     public function action(): void
     {
-        Mail::to('mario90stanic@gmail.com')->send(new OrderMail($this->order));
+        Mail::to('test@gmail.com')->send(new OrderMail($this->order));
     }
 
     public function makeOrder()
