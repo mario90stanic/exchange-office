@@ -11,8 +11,11 @@
 
 ## Using Lando
 - Lando (and docker) needs to be installed on a local machine
-- Open terminal in the root folder of the project and type `lando start` 
+- Docker needs to be up and running
+- Open terminal in the root folder of the project and type `lando start`
 - When finish in the terminal you will see links to the app
+- Next type `lando composer update`
+- In the root folder create .env file based on .env.example file
 
 ## Starting the project
 - When you boot up the server, you need to trigger migrations and seeding of the database with command `lando artisan db:migrate --seed`
